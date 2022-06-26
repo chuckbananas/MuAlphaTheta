@@ -48,15 +48,15 @@ nav ul {
     margin: 0 0;
     position: absolute;
     top: 50px;
-    left: 75%;
+    left: 50%;
     right: 0;
     display: inline-block;
     text-align: left;
 }
 
 nav li {
-    width: 50%;
     display: inline-block;
+    margin: 0 50px;
 }
 
 nav a {
