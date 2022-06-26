@@ -6,8 +6,8 @@ body, ul, li, h1, h2, a, footer, .banner {
 
 .banner {
     position: relative;
-    height: 400px;
     text-align: center;
+    margin-bottom: -4px;
 }
 
 .banner-img {
@@ -16,12 +16,12 @@ body, ul, li, h1, h2, a, footer, .banner {
 
 .banner-text {
     position: absolute;
-    top: 40%;
+    top: 50px;
     left: 0;
     right: 0;
     margin: 0 25%;
 
-    font-size: 74px;
+    font-size: 5vw;
     display: inline;
     text-align:center;
     padding: 6px 12px;
@@ -40,6 +40,7 @@ nav {
     top: 0px;
 
     padding: 10px;
+    z-index: 5;
 }
 
 nav ul {
@@ -63,6 +64,10 @@ nav a {
     color:slategray;
 }
 
+nav a:hover {
+    text-decoration: underline;
+}
+
 main {
     padding: 20px;
     line-height: 2;
@@ -70,10 +75,44 @@ main {
 
 main h1 {
     text-align:center;
+    margin: 10px 0;
+}
+
+.post {
+    padding: 20px;
+    border: 2px dashed lightblue;
+    border-radius: 10px;
+    margin: 20px 20px;
+}
+
+.problem-list {
+    list-style: none;
+}
+
+.problem-list li {
+    background-color: lightblue;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+.problem-list a {
+    text-decoration: none;
+    color: #2595db;
+}
+
+.problem-list a:hover {
+    text-decoration: underline;
 }
 
 footer {
     background-color: #e0e0e0;
     text-align: center;
     padding: 20px;
+}
+
+@media screen and (max-width: 800px){
+    nav ul{
+        white-space: normal;
+    }
 }
