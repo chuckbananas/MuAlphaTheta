@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Mu Alpha Theta</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="img/favicon.png">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <section class="banner">
+        <img src="img/banner.jpg" alt="banner" class="banner-img">
+        <div class="banner-text">
+            <h1>Mu Alpha Theta</h1>
+            <h2>California Connections Academy</h2>
+        </div>
+    </section>
+
+    <nav>
+        <a href="index.html"><img src="img/logo.png" alt="MAT Logo" class = "nav-img"></a>
+        <ul>
+            <li><a href="index.html">Announcements</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="problems.html">Problems</a></li>
+            <li><a href="topics.html">Topics</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Welcome to Mu Alpha Theta! Website version 0.1</h1>
+
+        <div class="post">
+            <strong class="title">The Chicken McNugget Theorem</strong>
+            <br>
+            <p>
+                Difficulty:
+                <span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span>
+            
+                <br>
+
+                <p>
+                    You are at McDonald's, hoping to grab a quick meal before heading home to study for your finals. As you need all the luck for your finals, you want to order exactly 23 Chicken McNuggets, since 23 is your lucky number. However, the nuggets only come in boxes of 6, 9, and 20. No matter how hard you try, you can't seem to buy a total of 23. Defeated, you buy 24 (4 boxes of 6) and eat one as fast as possible. But how unlucky did you get? 
+                    <div class="highlight">
+                    What is the largest lucky number that is not attainable as a total number of nuggets?
+                    </div>
+                </p>
+                <p>
+                    To figure this out, let's start with a simpler version of the problem. If there were only two sizes of boxes, 3 and 5, then we could easily make 6, 8, 9, and 10. However, we can't seem to make 7. The proof that we can make any number greater than 7 is not very hard to find, so it is left as a challenge to the reader. Tackle it if you are comfortable with number theory, or give it a shot if you aren't but want a challenge.
+                <details>
+                    <summary>Solution:</summary>
+                    <p>
+                        Clearly, we can make any multiple of 3 by getting some number of boxes of 3. This covers the integers 3, 6, 9... How about integers one more than a multiple of 3? We can make those by getting two boxes of 5, then adding boxes of 3 on top. This covers the numbers 10, 13, 16... Finally, integers two more than a multiple of 3 can be covered with one box of 5 and some number of boxes of 3. This covers 5, 8, 11... so we see that we can make any number greater than 7 by combining the 3 lists.
+                    </p>
+                    <p>
+                        The idea of separating integers into their remainders when dividing by some number \(m\) is so important in mathematics that it is given a special name: each group of numbers is called a <em>residue class</em> modulo \(m\). In this case, we used the residue classes modulo 3 to assist with our proof.
+                    </p>
+                </details>
+                </p>
+                <p>
+                    Now, we wonder if we can find the answer to the problem not just for 3 and 5, but for any two numbers \(m\) and \(n\). It turns out that working with variables is much harder than working with concrete numbers, so the difficulty will take a leap here.
+                </p>
+                <p>
+                    There are definitely some special cases, however. What if we wanted to figure out the answer for boxes of 3 and 6? Clearly, we can't make anything that's not a multiple of 3, so there is no answer to the problem in this case. Thus, we will only find the answer for \(m\) and \(n\) that are <em>relatively prime</em>, meaning they share no common factors other than 1. Otherwise, we would only be able to make multiples of that common factor.
+                </p>
+                <p>
+                    Now, in order to find the maximum unobtainable value, there are two statements we must prove:
+                    <ul>
+                        <li>All values higher than this maximum are obtainable</li>
+                        <li>The value itself is unobtainable</li>
+                    </ul>
+
+                    Notice that if we do not prove one of these statements, our proof is not complete!
+                </p>
+                <p>
+                    We might start with the first part: trying to prove an upper bound for the answer. We want a nice, symmetrical expression in \(m\) and \(n\) such that it and all numbers about it are obtainable. One option that stands out is \(mn\), which is clearly possible by either choosing \(m\) boxes of \(n\) or \(n\) boxes of \(m\). Proving that all values above this are obtainable is quite tricky, however, so this warrants a sub-problem of its own:
+                    <div class="highlight">
+                        Prove that all numbers of the form \(mn + k\) are obtainable, where \(k\) is a non-negative integer.
+                    </div>
+                </p>
+                <p>
+                    Dealing with the \(mn\) term seems unnatural, since most of our focus is on the variable part \(k\) and not the first term. However, we can use that first term to our advantage, by doing the following:
+                    <div class="highlight">
+                        <strong class="title">The Trick.</strong>
+                        Start with \(n\) boxes of \(m\) nuggets, and have \(k\) "spare" nuggets to the side. Then, we want to make a "trade" of \(a\) boxes of \(m\), plus the spare nuggets, with \(b\) boxes of \(n\) nuggets such that the total number of nuggets stays the same. Thus, the problem reduces to finding a solution for the equation $$am + k = bn$$ such that \(a \leq n\) and \(b \geq 0\).
+                    </div>
+                </p>
+                <p>
+                    The bounds for \(a\) and \(b\) are rather important. If \(a > n\), then we won't have enough boxes of \(n\) to make the trade. However, negative \(a\) turns out to be fine as it is equivalent to adding \(a\) boxes of \(m\) to our initial group.
+
+                    Let "The Trick" sink in for a moment, as it's crucial to understanding the later parts of the proof.
+                </p>
+                <p>
+                    Convince yourself that there always exists some positive integer solution for \((a,b)\). The intuitive reasoning is that going through the multiples of \(m\) cycles through the residue classes of \(n\), and formally constructing a solution might use Bezout's Lemma. However, this is outside the scope of the post, so we will take the existence of this solution for granted.
+                </p>
+                <p>
+                    Now that we know that there is some positive solution for \(a\) and \(b\), can we make the solution fit the bounds? Indeed we can; notice that if we subtract \(n\) from \(a\) and \(m\) from \(b\), the resulting \(a\) and \(b\) still satisfy the equation. Thus we can subtract \(n\) from \(a\) as many times as necessary so that \(a\) is less than or equal to \(n\) and positive. Since the left hand side of the equation is positive, the right hand side must be as well, so \(b\) is positive. Now that we have found solutions for \(a\) and \(b\), we know that any number above \(mn\) is constructible.
+                </p>
+                <p>
+                    However, it is possible to improve this upper bound, by using the same argument for negative \(k\) as well. But if the argument still held for all \(k\), then it would be a proof that all numbers are constructible. Clearly this is not true! So where does our argument fall apart? It is at the very last sentence: if \(k\) is negative, then \(b\) might not be non-negative. 
+                    <div class="highlight">
+                        <strong class="title">The Problem.</strong>
+                        For the \(a\) such that \(0 \leq a \leq n\), the solution for \(b\) in $$am + k = bn$$ may be negative.
+                    </div>
+                </p>
+                <p>
+                    We can still show that some values below \(mn\) are constructible. To do this, note that if \(k\) is positive, we can find a solution such that \(a\) and \(b\) are at least 1. This is clearly true if \(k\) is not divisible by \(m\) or \(n\). If it is, then without loss of generality let \(k = w \cdot m\). Then, taking \(m\) boxes of \(n\) and \(w\) boxes of \(m\) ensures there is at least one of each box type. 
+                </p>
+                <p>
+                    Now that we've shown that, we see that we can take away one of each box, effectively reducing \(k\) by \(m+n\). Thus, all values which are greater than or equal to \(mn - m - n + 1\) are constructible. It turns out that this is the optimal upper bound, and you are encouraged to prove that \(mn - m - n\) is not constructible.
+                    <details>
+                        <summary>Solution:</summary>
+                        This is equivalent to showing that \(mn\) cannot be constructed by using at least one of each box. However, notice that since \(m\) is relatively prime to \(n\), then for the sum to be divisible by \(n\), the number of boxes of \(m\) must be a multiple of \(n\). Both \(0\) and \(n\) lead to contradictions, so we conclude that it is impossible.
+                    </details>
+                </p>
+                <p>
+                    This result is known as the Chicken McNugget Theorem:
+                    <div class="highlight">
+                        <strong class="title">Chicken McNugget Theorem.</strong>
+                        The largest integer \(N\) such that \(am + bn = N\) has no solutions for non-negative integer \(a\) and \(b\) is \(mn - m - n\), given that \(m\) and \(n\) are relatively prime.
+                    </div>
+                </p>
+                <p>
+                    Isn't it amazing that regardless of the value of \(m\) and \(n\), this quantity always has a closed form?
+                </p>
+                <p>
+                    With this knowledge, try to solve the original problem! (This is much simpler than the proof above.)
+                    <details>
+                        <summary>Solution:</summary>
+                        We look for any way to apply our theorem. Seeing the 6 and 9, which are both divisible by 3, gives us the idea of splitting the values into residue classes modulo 3. By scaling down then up by 3, we see that the largest multiple of 3 that 6 and 9 cannot make is 3 by the Chicken McNugget Theorem. Now, to bring in the box of 20: residue classes of 1 modulo 3 can only be made with two boxes of 20; so the highest non-constructible value in this residue class is 43. Meanwhile, 23 is the highest non-constructible value in the residue class of 2 modulo 3. Thus, 43 is the final answer.
+                    </details>
+                </p>
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        Made by the members of Mu Alpha Theta - California Connections Academy
+    </footer>
+</body>
+</html>

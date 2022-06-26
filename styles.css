@@ -1,4 +1,4 @@
-body, ul, li, h1, h2, a, footer, .banner {
+body, li, h1, h2, a, footer, .banner {
     margin: 0 0;
     padding: 0 0;
     font-family: Segoe UI Symbol;
@@ -20,13 +20,17 @@ body, ul, li, h1, h2, a, footer, .banner {
     left: 0;
     right: 0;
     margin: 0 25%;
-
-    font-size: 5vw;
     display: inline;
     text-align:center;
     padding: 6px 12px;
-    border: 4px solid #2595db;
-    border-radius: 10px;
+}
+
+.banner-text h1 {
+    font-size: 5vw;
+}
+
+.banner-text h2 {
+    font-size: 3vw;
 }
 
 .nav-img {
@@ -48,7 +52,6 @@ nav ul {
     margin: 0 0;
     position: absolute;
     top: 50px;
-    left: 50%;
     right: 0;
     display: inline-block;
     text-align: left;
@@ -87,6 +90,8 @@ main h1 {
 
 .problem-list {
     list-style: none;
+    margin-left: 0px;
+    padding: 0;
 }
 
 .problem-list li {
@@ -109,10 +114,45 @@ footer {
     background-color: #e0e0e0;
     text-align: center;
     padding: 20px;
+    color: slategray;
 }
 
 @media screen and (max-width: 800px){
     nav ul{
         white-space: normal;
+        left: 50%;
+        top: 0px;
+        padding: 10px;
     }
-} 
+    nav li {
+        margin-right: 1000px;
+        margin-left: 0px;
+        margin-top: 5px;
+    }
+}
+
+details {
+    background-color: #647fd6;
+    border: 2px solid #33406d;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.highlight {
+    background-color: #ee9c9c;
+    border: 2px solid #dc2424;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.checked {
+    color: orange;
+}
+
+ul {
+    margin-left: 20px;
+}
+
+.date {
+    font-size: 14px;
+}
