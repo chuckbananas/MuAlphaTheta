@@ -4,29 +4,90 @@
     <title>Mu Alpha Theta</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="img/favicon.png">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <section class="banner">
         <img src="img/banner.jpg" alt="banner" class="banner-img">
-        <h1 class="banner-text">Mu Alpha Theta</h1>
+        <div class="banner-text">
+            <h1>Mu Alpha Theta</h1>
+            <h2>California Connections Academy</h2>
+        </div>
     </section>
 
     <nav>
         <a href="index.html"><img src="img/logo.png" alt="MAT Logo" class = "nav-img"></a>
         <ul>
+            <li><a href="index.html">Announcements</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="problems.html">Problems</a></li>
+            <li><a href="topics.html">Topics</a></li>
         </ul>
     </nav>
 
     <main>
         <div class="post">
+            <strong class="title">2022-2023 Monthlies</strong>
+            <ul class="problem-list">
+                <li><a href="files/2022_December.pdf">2022 December Problems</a></li>
+            </ul>  
+        </div>
+
+        <div class="post">
+            <strong class="title">Interesting Problem #2: Odd Swaps</strong>
+            <br>
+            Author: Jason S.
+            <br>
+            Difficulty:
+                <span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+            <p>
+                The numbers \(1, 2, \dots n\) are listed in a row. Prove that you cannot do an odd number of swaps on the list and return it to its original state.
+            </p>
+
+            <details>
+                <summary>Solution:</summary>
+                <p>(Written by Ethan L.)</p>
+
+                <p>
+                    Define an inversion of a permutation to be a pair \((i, j)\) such that \(i > j\) and \(a_i < a_j\). Likewise, the number of distinct inversions in a permutation is the number of adjacent swaps needed to sort the permutation. We claim that the number of inversions of a permutation must change by an odd amount when swapping two elements.
+                </p>
+
+                <p>
+                    Proceed by induction. When swapping two adjacent elements, the number of inversions either increases or decreases by one. Suppose that when swapping two elements \(a_i\) and \(a_j\) whose indices differ by \(n-1\), the number of inversions changes by an odd amount. Then, perform the series of swaps \((j, j + 1)\), \((i, j)\), \((j, j+1)\) which effectively swaps \((i, j+1)\). The number of inversions has now changed by an odd number, so any swap with a distance of \(n\) must change the parity of the number of inversions. By the inductive hypothesis, this must hold for every \(n\).
+                </p>
+
+                <p>
+                    Now, every swap must change the parity of the total number of inversions. If an odd number of swaps are made, the parity must change and we cannot be at the original state. Therefore, an even number of swaps is necessary to return to the original state.
+                </p>
+
+            </details>
+            
+        </div>
+
+        <div class="post">
             <strong class="title">Interesting Problem #1: Spring-Mass System</strong>
+            <br>
+            Author: Ethan L.
+            <br>
+            Difficulty:
+                <span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span>
             <p>
                 On the coordinate plane, a point mass \(m\) is on a track which coincides with the graph of \(y = \frac{x^2}{4}\). The point mass can freely move along the track with no friction. It is attached to the fixed point \((0,1)\) with a spring of spring constant \(k\) and rest length \(0\). If the mass \(m\) starts on the track at \(x = r\), find the period of the resulting oscillation. (The coordinate plane is placed parallel to the ground, so gravity has no effect on the system.)
             </p>
+
+            <details>
+                <summary>Solution:</summary>
+                <p>(Written by Ethan L.)</p>
+
+                <p>
+                    Since \(F = (0,1)\) is the focus of the parabola, it has some special properties. The distance from any point \(P\) on the parabola to the focus is the same as the distance to the directrix \((y = -1)\). Drop an altitude from \(P\) to the directrix, and let its foot be \(D\). It can also be verified that the tangent to the parabola at \(P\) bisects \(\angle FPD\).</p>
+                <p>
+                    With these two facts, it follows that the system described above is equivalent to having the other end of the spring attached to the directrix instead of the focus. By some trigonometry or similar triangles, we find that \(\frac{d^2x}{dt^2} = -\frac{kx}{2m}\), which is simple harmonic motion and thus has a period of \(2\pi\sqrt{\frac{2m}{k}}\).
+                </p>
+            </details>
             
         </div>
         <div class="post">
@@ -41,7 +102,7 @@
     </main>
 
     <footer>
-        Made by the members of Mu Alpha Theta - California Connections Academy
+        Created by the members of Mu Alpha Theta - California Connections Academy
     </footer>
 </body>
 </html>
